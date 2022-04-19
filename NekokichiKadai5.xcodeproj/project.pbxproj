@@ -13,6 +13,7 @@
 		A24BB295280EF59300B105A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A24BB293280EF59300B105A5 /* Main.storyboard */; };
 		A24BB297280EF59400B105A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A24BB296280EF59400B105A5 /* Assets.xcassets */; };
 		A24BB29A280EF59400B105A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A24BB298280EF59400B105A5 /* LaunchScreen.storyboard */; };
+		A24BB2A3280EFA5200B105A5 /* DivisionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24BB2A2280EFA5200B105A5 /* DivisionModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		A24BB296280EF59400B105A5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A24BB299280EF59400B105A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A24BB29B280EF59400B105A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A24BB2A2280EFA5200B105A5 /* DivisionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DivisionModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				A24BB28D280EF59300B105A5 /* AppDelegate.swift */,
 				A24BB28F280EF59300B105A5 /* SceneDelegate.swift */,
 				A24BB291280EF59300B105A5 /* ViewController.swift */,
+				A24BB2A2280EFA5200B105A5 /* DivisionModel.swift */,
 				A24BB293280EF59300B105A5 /* Main.storyboard */,
 				A24BB296280EF59400B105A5 /* Assets.xcassets */,
 				A24BB298280EF59400B105A5 /* LaunchScreen.storyboard */,
@@ -159,6 +162,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A24BB2A3280EFA5200B105A5 /* DivisionModel.swift in Sources */,
 				A24BB292280EF59300B105A5 /* ViewController.swift in Sources */,
 				A24BB28E280EF59300B105A5 /* AppDelegate.swift in Sources */,
 				A24BB290280EF59300B105A5 /* SceneDelegate.swift in Sources */,
