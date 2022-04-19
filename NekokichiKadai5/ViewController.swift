@@ -1,19 +1,18 @@
 //
 //  ViewController.swift
-//  NekokichiKadai5
 //
 //  Created by Nekokichi on 2022/04/19.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
+    
+    @IBOutlet weak private var inputNumeratorField: UITextField!
+    @IBOutlet weak private var inputDenominatorField: UITextField!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
+    @IBAction func divisionButton(_ sender: UIButton) {
     }
-
-
+    
 }
 
