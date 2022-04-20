@@ -14,7 +14,7 @@ protocol Calculatable {
 final class Division: Calculatable {
     private var numerator: Double
     private var denominator: Double
-    init(_ numeratorValue: Int, _ denominatorValue: Int) {
+    init(numerator numeratorValue: Int, denominator denominatorValue: Int) {
         numerator = Double(numeratorValue)
         denominator = Double(denominatorValue)
     }

@@ -16,7 +16,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="oCw-TC-BaB">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gtq-qs-xJQ">
+                                <rect key="frame" x="180.5" y="233" width="53" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="計算"/>
+                                <connections>
+                                    <action selector="divisionButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ns8-MS-egh"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="oCw-TC-BaB">
                                 <rect key="frame" x="88" y="117" width="238.5" height="34"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Akd-sE-NoA">
@@ -25,7 +33,7 @@
                                             <constraint firstAttribute="width" constant="97" id="XbQ-mt-UG6"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="÷" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fQp-mo-p8x">
                                         <rect key="frame" x="114" y="0.0" width="10.5" height="34"/>
@@ -39,26 +47,32 @@
                                             <constraint firstAttribute="width" constant="97" id="arv-zP-kYm"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gtq-qs-xJQ">
-                                <rect key="frame" x="181" y="233" width="53" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="計算"/>
-                                <connections>
-                                    <action selector="divisionButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ns8-MS-egh"/>
-                                </connections>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tNH-3I-jwG">
+                                <rect key="frame" x="186.5" y="183" width="41.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="tNH-3I-jwG" firstAttribute="top" secondItem="oCw-TC-BaB" secondAttribute="bottom" constant="32" id="2nD-fZ-xsx"/>
+                            <constraint firstItem="oCw-TC-BaB" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="73" id="DEf-0h-Yom"/>
+                            <constraint firstItem="oCw-TC-BaB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="TNm-9R-1bv"/>
+                            <constraint firstItem="Gtq-qs-xJQ" firstAttribute="top" secondItem="tNH-3I-jwG" secondAttribute="bottom" constant="29.5" id="aZN-6o-rRb"/>
+                            <constraint firstItem="Gtq-qs-xJQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qyQ-ZT-xvW"/>
+                            <constraint firstItem="tNH-3I-jwG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="v1b-pm-ogo"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="inputDenominatorField" destination="Pon-6M-Vlw" id="EtK-aF-G8T"/>
                         <outlet property="inputNumeratorField" destination="Akd-sE-NoA" id="vZj-E6-BLP"/>
+                        <outlet property="resultLabel" destination="tNH-3I-jwG" id="vLG-YB-REw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
