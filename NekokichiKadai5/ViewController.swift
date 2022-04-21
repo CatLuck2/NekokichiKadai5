@@ -27,6 +27,7 @@ final class ViewController: UIViewController {
     @IBOutlet weak private var inputNumeratorField: UITextField!
     @IBOutlet weak private var inputDenominatorField: UITextField!
     @IBOutlet weak private var resultLabel: UILabel!
+    // 計算ボタンを押下時に処理を実行するので、初期化はまだ
     private var calculator: Calculator!
 
     override func viewDidLoad() {
