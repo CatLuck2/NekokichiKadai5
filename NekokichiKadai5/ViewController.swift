@@ -8,12 +8,12 @@ import UIKit
 
 final class ViewController: UIViewController {
 
-    enum Result<T, Error: Swift.Error> {
+    private enum Result<T, Error: Swift.Error> {
         case success(T)
         case failure(Error)
     }
 
-    enum ValueError: Error {
+    private enum ValueError: Error {
         case emptyNumeratorError
         case emptyDenominatorError
         case foundZeroInNumeratorError
@@ -22,20 +22,30 @@ final class ViewController: UIViewController {
 
     @IBOutlet weak private var inputNumeratorField: UITextField!
     @IBOutlet weak private var inputDenominatorField: UITextField!
-    @IBOutlet weak var resultLabel: UILabel!
+    @IBOutlet weak private var resultLabel: UILabel!
+    private var calculator: Calculator!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        inputNumeratorField.keyboardType = .numberPad
+        inputDenominatorField.keyboardType = .numberPad
+    }
 
     @IBAction func divisionButton(_ sender: UIButton) {
         switch checkInputValue() {
         case .success:
-            break
+            let numeratorValue = Int(inputNumeratorField.text!)!
+            let denominatorValue = Int(inputDenominatorField.text!)!
+            calculator = Calculator(Division(numerator: numeratorValue, denominator: denominatorValue))
+            resultLabel.text = "\(calculator.result())"
         case .failure(.emptyNumeratorError):
             alert(message: "割る数を入力してください")
         case .failure(.emptyDenominatorError):
             alert(message: "割られる数を入力してください")
         case .failure(.foundZeroInNumeratorError):
-            alert(message: "割る数には0以外を入力してください")
+            alert(message: "割る数には0を入力しないでください")
         case .failure(.foundZeroInDenominatorError):
-            alert(message: "割られる数には0以外を入力してください")
+            alert(message: "割られる数には0を入力しないでください")
         }
     }
 
