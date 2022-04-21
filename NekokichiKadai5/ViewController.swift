@@ -31,6 +31,7 @@ final class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        // 数字しか入力できないよう設定
         inputNumeratorField.keyboardType = .numberPad
         inputDenominatorField.keyboardType = .numberPad
     }
@@ -59,6 +60,7 @@ final class ViewController: UIViewController {
         if inputNumeratorField.text == "" { return .failure(.emptyNumeratorError) }
         if inputDenominatorField.text == "" { return .failure(.emptyDenominatorError) }
         // 入力値が0か
+        // 文字列を入力した場合のエラー処理がわかりませんでした
         if (Int(inputNumeratorField.text ?? "") ?? 0) == 0 { return .failure(.numeratorIsZeroError) }
         if (Int(inputDenominatorField.text ?? "") ?? 0) == 0 { return .failure(.denominatorIsZeroError) }
         // 成功
