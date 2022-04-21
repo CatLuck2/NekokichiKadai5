@@ -14,10 +14,14 @@ final class ViewController: UIViewController {
     }
 
     private enum ValueError: Error {
+        // 割る数がないエラー
         case emptyNumeratorError
+        // 割られる数がないエラー
         case emptyDenominatorError
-        case foundZeroInNumeratorError
-        case foundZeroInDenominatorError
+        // 割る数が0のエラー
+        case numeratorIsZeroError
+        // 割る数が0のエラー
+        case denominatorIsZeroError
     }
 
     @IBOutlet weak private var inputNumeratorField: UITextField!
@@ -34,6 +38,7 @@ final class ViewController: UIViewController {
     @IBAction func divisionButton(_ sender: UIButton) {
         switch checkInputValue() {
         case .success:
+            // 入力値が有効な数値だと保証されてるので、強制アンラップ
             let numeratorValue = Int(inputNumeratorField.text!)!
             let denominatorValue = Int(inputDenominatorField.text!)!
             calculator = Calculator(Division(numerator: numeratorValue, denominator: denominatorValue))
@@ -42,18 +47,21 @@ final class ViewController: UIViewController {
             alert(message: "割る数を入力してください")
         case .failure(.emptyDenominatorError):
             alert(message: "割られる数を入力してください")
-        case .failure(.foundZeroInNumeratorError):
+        case .failure(.numeratorIsZeroError):
             alert(message: "割る数には0を入力しないでください")
-        case .failure(.foundZeroInDenominatorError):
+        case .failure(.denominatorIsZeroError):
             alert(message: "割られる数には0を入力しないでください")
         }
     }
 
     private func checkInputValue() -> Result<Void, ValueError> {
+        // 入力値が空か
         if inputNumeratorField.text == "" { return .failure(.emptyNumeratorError) }
         if inputDenominatorField.text == "" { return .failure(.emptyDenominatorError) }
-        if (Int(inputNumeratorField.text ?? "") ?? 0) == 0 { return .failure(.foundZeroInNumeratorError) }
-        if (Int(inputDenominatorField.text ?? "") ?? 0) == 0 { return .failure(.foundZeroInDenominatorError) }
+        // 入力値が0か
+        if (Int(inputNumeratorField.text ?? "") ?? 0) == 0 { return .failure(.numeratorIsZeroError) }
+        if (Int(inputDenominatorField.text ?? "") ?? 0) == 0 { return .failure(.denominatorIsZeroError) }
+        // 成功
         return .success(())
     }
 
